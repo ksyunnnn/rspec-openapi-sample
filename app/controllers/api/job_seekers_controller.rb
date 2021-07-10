@@ -1,6 +1,6 @@
 class Api::JobSeekersController < ApplicationController
   def index
-    job_seekers = JobSeeker.includes(:job_seeker_basic_informations).all
+    job_seekers = JobSeeker.all
     render json: job_seekers
   end
 

@@ -3,4 +3,213 @@ openapi: 3.0.3
 info:
   title: openapi_sample
   version: 1.0.0
-paths: {}
+paths:
+  "/api/job_seeker_basic_informations":
+    post:
+      summary: create
+      tags:
+      - Api::JobSeekerBasicInformation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                job_seeker_basic_information:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    age:
+                      type: integer
+                    job_seeker_id:
+                      type: integer
+            example:
+              job_seeker_basic_information:
+                name: らんてくん
+                age: 20
+                job_seeker_id: 341
+      responses:
+        '200':
+          description: job_seeker_basic_informationが作成できること
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jobSeekerBasicInformation:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      age:
+                        type: integer
+              example:
+                jobSeekerBasicInformation:
+                  id: 55
+                  name: らんてくん
+                  age: 20
+  "/api/job_seeker_basic_informations/{id}":
+    get:
+      summary: show
+      tags:
+      - Api::JobSeekerBasicInformation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        example: 56
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        example: 58
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        example: 60
+      responses:
+        '200':
+          description: job_seeker_basic_informationの詳細が取得できること
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jobSeekerBasicInformation:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      name:
+                        type: string
+                      age:
+                        type: integer
+              example:
+                jobSeekerBasicInformation:
+                  id: 56
+                  name: らんてくんMk2
+                  age: 11
+  "/api/job_seekers":
+    get:
+      summary: index
+      tags:
+      - Api::JobSeeker
+      responses:
+        '200':
+          description: job_seekerの一覧が取得できること
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jobSeekers:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        jobSeekerBasicInformations:
+                          type: array
+                          items:
+                            nullable: true
+              example:
+                jobSeekers:
+                - id: 343
+                  jobSeekerBasicInformations: []
+                - id: 344
+                  jobSeekerBasicInformations: []
+                - id: 345
+                  jobSeekerBasicInformations: []
+                - id: 346
+                  jobSeekerBasicInformations: []
+                - id: 347
+                  jobSeekerBasicInformations: []
+                - id: 348
+                  jobSeekerBasicInformations: []
+                - id: 349
+                  jobSeekerBasicInformations: []
+                - id: 350
+                  jobSeekerBasicInformations: []
+                - id: 351
+                  jobSeekerBasicInformations: []
+                - id: 352
+                  jobSeekerBasicInformations: []
+    post:
+      summary: create
+      tags:
+      - Api::JobSeeker
+      responses:
+        '200':
+          description: job_seekerが作成できること
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jobSeeker:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      jobSeekerBasicInformations:
+                        type: array
+                        items:
+                          nullable: true
+              example:
+                jobSeeker:
+                  id: 353
+                  jobSeekerBasicInformations: []
+  "/api/job_seekers/{id}":
+    get:
+      summary: show
+      tags:
+      - Api::JobSeeker
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        example: 354
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        example: 370
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        example: 386
+      responses:
+        '200':
+          description: job_seeker詳細が取得できること
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jobSeeker:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      jobSeekerBasicInformations:
+                        type: array
+                        items:
+                          nullable: true
+              example:
+                jobSeeker:
+                  id: 354
+                  jobSeekerBasicInformations: []
